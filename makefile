@@ -1,12 +1,12 @@
-install: project_venv
-	. project_venv/bin/activate; pip3 install -Ur requirements.txt
+install: venv
+	. venv/bin/activate; pip3 install -Ur requirements.txt
 
 venv:
-	test -d project_venv || python3 -m venv project_venv
+	test -d venv || python3 -m venv venv
 
 run:
-	. project_venv/bin/activate; python3 kmeans.py
+	. venv/bin/activate; python3 convert_to_csv.py
 
 clean:
-	rm -rf project_venv
+	rm -rf venv
 	find . -iname "*.pyc" -delete
